@@ -5,25 +5,21 @@ const express = require('express');
 const fs = require("fs");
 const https = require("https");
 const http = require("http");
-let healthChecker = new health.HealthChecker();
 
 const app = express();
 
 // Create express router
 const router = express.Router();
 
-
-const extratoController = require('./controllers/extrato.controller');
-const dashboardController = require('./controllers/dashboard.controller');
-const studantesController = require('./controllers/students.controller');
+const studentesController = require('./controllers/students.controller');
 //retorna  todos os alunos cadastrados
-router.get('/api/students/findall', studantesController.findAllStudents);
+router.get('/api/students/findall', studentesController.findAllStudents);
 
-router.get('/api/students/find/:studentId', studantesController.findStudent)
+router.get('/api/students/find/:studentId', studentesController.findStudent)
 //
-router.post('/api/students/new', studantesController.newStudent)
+router.post('/api/students/new', studentesController.newStudent)
 
-router.put('/api/students/:studentId', studantesController.updateStudent)
+router.put('/api/students/:studentId', studentesController.updateStudent)
 
 const port = process.env.PORT || 3050;
 app.set('port', port);

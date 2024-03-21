@@ -1,4 +1,4 @@
-const studentsAccess = require('../services/adminDatabase/studentQueries');
+const studentsAccess = require('../services/adminDatabase/studentsQueries.js');
 const jwt = require('jsonwebtoken');
 
 const findAllStudents = async (req, res) => {
@@ -14,7 +14,7 @@ const findAllStudents = async (req, res) => {
 const findStudent = async (req, res) => {
   try {
     var studentId = req.params['studentId']
-    const queryResult = await studentsAccess.findStudent(studentId);
+    const queryResult = await studentsAccess.findStudent(""+studentId);
     return res.status(200).send(queryResult);
   } catch (error) {
     console.log(error);
