@@ -14,7 +14,7 @@ const findAllStudents = async (req, res) => {
 const findStudent = async (req, res) => {
   try {
     var studentId = req.params['studentId']
-    const queryResult = await studentsAccess.findStudent(""+studentId);
+    const queryResult = await studentsAccess.findStudent(studentId);
     return res.status(200).send(queryResult);
   } catch (error) {
     console.log(error);

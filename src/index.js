@@ -13,11 +13,11 @@ const router = express.Router();
 
 const studentesController = require('./controllers/students.controller');
 //retorna  todos os alunos cadastrados
-router.get('/api/students/findall', studentesController.findAllStudents);
+router.get('/api/students/', studentesController.findAllStudents);
 
-router.get('/api/students/find/:studentId', studentesController.findStudent)
+router.get('/api/students/:studentId', studentesController.findStudent)
 //
-router.post('/api/students/new', studentesController.newStudent)
+router.post('/api/students/', studentesController.newStudent)
 
 router.put('/api/students/:studentId', studentesController.updateStudent)
 
